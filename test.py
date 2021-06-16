@@ -33,3 +33,8 @@ print("<<< until_of test >>>")
 a = "Tiller bin##00@@"
 (text, id, subtext) = pp.read_until_of(a, ['00', '##', '@@'])
 print(f"{text} == {id},{subtext}")
+
+print("<<< read while >>>")
+a = "abcabccbbabbcba bbbabbaba"
+text = pp.read_while(a, "abc")
+print(text + ">")

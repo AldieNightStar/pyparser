@@ -26,19 +26,6 @@ for (token, cnt) in pp.parse(text, pp.parser_string):
 		print(str(token))
 ```
 
-# Parsers
-
-## Parser until some subString
-```py
-p = pp.parser_until("@")
-
-for (t, cnt) in pp.parse("xyz@111", p):
-	print(t)
-
-# Output:
-# xyz
-```
-
 ## Any of string-set parser
 ```py
 p = pp.parser_any_of("abcdef")
@@ -106,4 +93,8 @@ text = pp.read_until(src, "end")
 #	- int: Index of closest substring
 #	- str: Closest substring
 (text, id, subs) = pp.read_until_of(src, ["end", "stop", "proc"])
+
+# Reads text while symbols are in set
+# When symbol is not in set, then return text before that symbol
+text = pp.read_while(src, "abcdef.,-")
 ```

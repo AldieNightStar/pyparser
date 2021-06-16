@@ -1,5 +1,11 @@
 from typing import List, Tuple, cast
 
+def read_while(text: str, set: str):
+	for i in range(len(text)):
+		if not text[i] in set:
+			break
+	return text[:i]
+
 def is_next(text: str, subtext: str):
 	return text[0:len(subtext)] == subtext
 
